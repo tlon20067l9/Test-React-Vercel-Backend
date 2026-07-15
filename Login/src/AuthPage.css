@@ -75,6 +75,7 @@
   background-size: cover;                                    
   background-position: center;                                
   background-repeat: no-repeat;
+  background-attachment: fixed; 
   color: var(--text);
   font-family: "Plus Jakarta Sans", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
