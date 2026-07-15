@@ -1,6 +1,14 @@
 .auth-page-wrap {
-  min-height: 100vh;
-  width: 100%;
+  min-height: 100svh;
+  width: 100vw;
+  /* Kỹ thuật "full-bleed": phá khung width:1126px của #root cha,
+     cho phần nền tràn hết chiều rộng màn hình */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,13 +35,13 @@
   border-radius: 12px;
   padding: 36px 32px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
   color: var(--text);
   box-sizing: border-box;
 }
 .auth-card * { box-sizing: border-box; }
 
-.auth-card h1 { font-size: 22px; font-weight: 700; margin: 0 0 6px; }
+.auth-card h1 { font-size: 24px; font-weight: 700; margin: 0 0 6px; }
 .auth-card p.sub { font-size: 14px; color: var(--muted); margin: 0 0 28px; }
 
 .auth-card .field { margin-bottom: 16px; }
@@ -42,6 +50,7 @@
   width: 100%;
   padding: 11px 12px;
   font-size: 14px;
+  font-family: inherit;
   border: 1px solid var(--border);
   border-radius: 8px;
   outline: none;
@@ -78,6 +87,7 @@
 .auth-card button.submit {
   width: 100%; padding: 12px; border: none; border-radius: 8px;
   background: var(--primary); color: #fff; font-size: 14.5px; font-weight: 600;
+  font-family: inherit;
   cursor: pointer; transition: background .15s ease;
 }
 .auth-card button.submit:hover { background: var(--primary-dark); }
