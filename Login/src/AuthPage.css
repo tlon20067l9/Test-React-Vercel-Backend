@@ -58,10 +58,22 @@
 
 * { box-sizing: border-box; }
 
+
+
 /* ============ FULL PAGE SHELL ============
    The whole page — nav, hero copy, card, footer — sits on one continuous
    animated mesh background, so the form reads as part of a real site
    instead of a lone card floating on an empty screen. */
+html {
+  /* Luôn hiện thanh cuộn dọc THẬT (không phải gutter giả), kể cả khi
+     trang chưa đủ dài để cần cuộn. Nếu không có dòng này, mỗi lần
+     chuyển giữa các view có chiều cao khác nhau, thanh cuộn sẽ
+     bật/tắt liên tục -> 100vw của .site-shell tính lại theo giá trị
+     mới -> toàn trang bị xô lệch qua lại. Ép cuộn cố định thì phép
+     tính 100vw luôn nhất quán, không còn giật. */
+  overflow-y: scroll;
+}
+
 .site-shell {
   min-height: 100vh;
   width: 100vw;
@@ -71,7 +83,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--bg);
-  background-image: url('/LunaBD_2025.png');  
+  background-image: url('/1784115744567_4603010674078918304_g4153041264920716259_8ad51068e6c662ed6fdd91c5b05deecd.jpg');  
   background-size: cover;                                    
   background-position: center;                                
   background-repeat: no-repeat;
