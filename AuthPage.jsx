@@ -242,28 +242,6 @@ export default function AuthPage() {
 
   return (
     <div className="site-shell">
-      <header className="site-nav">
-        <nav className="site-nav-links">
-          <a href="#">Trang chủ</a>
-        </nav>
-        <div className="site-nav-actions">
-          <button
-            type="button"
-            className="nav-auth-btn"
-            onClick={() => setView("login")}
-          >
-            Đăng nhập
-          </button>
-          <button
-            type="button"
-            className="nav-auth-btn"
-            onClick={() => setView("register")}
-          >
-            Đăng ký
-          </button>
-        </div>
-      </header>
-
       <main className="site-main">
         <div className="site-hero"></div>
 
