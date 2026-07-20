@@ -142,53 +142,51 @@ html {
   background: linear-gradient(135deg, var(--primary), var(--blob-b) 120%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
 }
-.site-nav-links { display: flex; gap: 28px; }
-.site-nav-links a {
-  display: inline-flex;
-  align-items: center;
-  box-sizing: border-box;
-  line-height: 1.3;
-  font-size: 14px; font-weight: 600; color: var(--text); text-decoration: none;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
-  transition: background .15s, transform .15s;
-}
-.site-nav-links a:hover { background: rgba(255, 255, 255, .8); transform: translateY(-1px); }
+.site-nav-links { display: flex; gap: 12px; }
 @media (max-width: 700px) { .site-nav-links { display: none; } }
 
 .site-nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
-.nav-auth-btn {
+
+/* Nút dùng chung cho Trang chủ / Đăng nhập / Đăng ký — cùng 1 class
+   để không bao giờ bị lệch kích thước giữa <a> và <button>. */
+.nav-pill {
+  appearance: none;
+  -webkit-appearance: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   box-sizing: border-box;
-  line-height: 1.3;
+  height: 42px;
   margin: 0;
   font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
   color: var(--text);
   text-decoration: none;
-  padding: 7px 14px;
+  white-space: nowrap;
+  padding: 0 20px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, .55);
+  background: rgba(255, 255, 255, .6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: none;
+  border: 1.5px solid rgba(255, 255, 255, .7);
   box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
   cursor: pointer;
-  transition: background .15s, transform .15s;
+  transition: background .15s, transform .15s, box-shadow .15s;
 }
-.nav-auth-btn:hover { background: rgba(255, 255, 255, .8); transform: translateY(-1px); }
+.nav-pill:hover {
+  background: rgba(255, 255, 255, .85);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px -4px rgba(0, 0, 0, .18);
+}
+.nav-pill:active { transform: translateY(0); }
 @media (max-width: 700px) {
-  .nav-auth-btn { padding: 6px 12px; font-size: 13px; }
+  .nav-pill { height: 38px; padding: 0 16px; font-size: 14px; }
 }
 
 /* ---- main: hero copy + auth card side by side ---- */
@@ -380,6 +378,35 @@ button.submit:hover {
   transform: translateY(-1px);
 }
 button.submit:active { transform: translateY(1px); filter: brightness(.97); }
+
+/* ---- social login (Google / Facebook) ---- */
+.social-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 20px 0 14px;
+  font-size: 13.5px; color: var(--muted); font-weight: 500;
+}
+.social-divider::before,
+.social-divider::after {
+  content: ""; flex: 1; height: 1px; background: var(--border);
+}
+.social-buttons { display: flex; flex-direction: column; gap: 10px; }
+.social-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 15px; font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+.social-btn:hover {
+  border-color: color-mix(in srgb, var(--border) 30%, var(--primary));
+  background: var(--primary-light);
+}
+.social-btn:active { transform: translateY(1px); }
 
 .footer { text-align: center; font-size: 14.5px; color: var(--muted); margin-top: 18px; }
 

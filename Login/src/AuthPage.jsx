@@ -15,6 +15,38 @@ const EyeOffIcon = () => (
   </svg>
 );
 
+const GoogleIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18">
+    <path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.47c-.28 1.5-1.13 2.77-2.4 3.63v3.02h3.89c2.28-2.1 3.56-5.17 3.56-8.84Z" />
+    <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.95-2.9l-3.89-3.02c-1.08.73-2.46 1.15-4.06 1.15-3.13 0-5.78-2.11-6.73-4.95H1.26v3.11C3.24 21.3 7.28 24 12 24Z" />
+    <path fill="#FBBC05" d="M5.27 14.28A7.2 7.2 0 0 1 4.89 12c0-.79.14-1.56.38-2.28V6.61H1.26A11.98 11.98 0 0 0 0 12c0 1.93.46 3.76 1.26 5.39l4.01-3.11Z" />
+    <path fill="#EA4335" d="M12 4.77c1.76 0 3.34.6 4.59 1.79l3.44-3.44C17.95 1.19 15.24 0 12 0 7.28 0 3.24 2.7 1.26 6.61l4.01 3.11C6.22 6.88 8.87 4.77 12 4.77Z" />
+  </svg>
+);
+
+const FacebookIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="#1877F2">
+    <path d="M24 12.07C24 5.68 18.63.5 12 .5S0 5.68 0 12.07c0 5.78 4.35 10.57 10.02 11.43v-8.09H7.08v-3.34h2.94V9.5c0-2.87 1.74-4.46 4.4-4.46 1.27 0 2.6.22 2.6.22v2.8h-1.47c-1.44 0-1.89.88-1.89 1.79v2.15h3.22l-.52 3.34h-2.7v8.09C19.65 22.64 24 17.85 24 12.07Z" />
+  </svg>
+);
+
+// Nút đăng nhập nhanh qua Google / Facebook, dùng chung cho form đăng nhập và đăng ký
+function SocialAuth({ label }) {
+  return (
+    <>
+      <div className="social-divider"><span>Hoặc</span></div>
+      <div className="social-buttons">
+        <button type="button" className="social-btn">
+          <GoogleIcon /> {label} Google
+        </button>
+        <button type="button" className="social-btn">
+          <FacebookIcon /> {label} Facebook
+        </button>
+      </div>
+    </>
+  );
+}
+
 // Input mật khẩu có nút hiện/ẩn, tái sử dụng cho mọi form
 function PasswordField({ id, label, value, onChange, error, autoComplete }) {
   const [visible, setVisible] = useState(false);
@@ -92,6 +124,8 @@ function LoginView({ goto }) {
         <button type="submit" className="submit">Đăng nhập</button>
       </form>
 
+      <SocialAuth label="Đăng nhập với" />
+
       <div className="footer">
         Chưa có tài khoản?{" "}
         <button type="button" className="link-btn" onClick={() => goto("register")}>Đăng ký</button>
@@ -144,6 +178,8 @@ function RegisterView({ goto }) {
 
         <button type="submit" className="submit">Đăng ký</button>
       </form>
+
+      <SocialAuth label="Đăng ký với" />
 
       <div className="footer">
         Đã có tài khoản?{" "}
@@ -244,19 +280,19 @@ export default function AuthPage() {
     <div className="site-shell">
       <header className="site-nav">
         <nav className="site-nav-links">
-          <a href="#">Trang chủ</a>
+          <a href="#" className="nav-pill">Trang chủ</a>
         </nav>
         <div className="site-nav-actions">
           <button
             type="button"
-            className="nav-auth-btn"
+            className="nav-pill"
             onClick={() => setView("login")}
           >
             Đăng nhập
           </button>
           <button
             type="button"
-            className="nav-auth-btn"
+            className="nav-pill"
             onClick={() => setView("register")}
           >
             Đăng ký
